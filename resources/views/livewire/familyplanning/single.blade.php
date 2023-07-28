@@ -8,7 +8,7 @@ use Carbon\Carbon;
     <td>{{$this->getAge()}} Thn</td>
     <td>{{$familyplanning->husbands_name}}</td>
     <td>{{$familyplanning->address}}</td>
-    <td>{{\Carbon\Carbon::parse($familyplanning->arrival_date)->format('d F Y')}}</td>
+    <td>{{\Carbon\Carbon::parse($familyplanning->entry_date)->format('d F Y')}}</td>
     <td>
         <button class="btn btn-sm btn-warning"  onclick="location.href='{{ route('familyplanning.update', ['familyplanning' => $familyplanning->id]) }}'">
             Edit Data KB
