@@ -299,7 +299,8 @@ class Process extends Component
                                         "drug_id" => $drug["drug"]["id"],
                                         "quantity" => $drug["quantity"],
                                         "instruction" => $drug["instruction"],
-                                        "harga" => $this->harga
+                                        // "harga" => $this->harga
+                                        "harga" => $drug["harga"]
                                     ]);
                                 }
                             }

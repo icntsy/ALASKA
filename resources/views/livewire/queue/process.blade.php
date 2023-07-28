@@ -310,10 +310,13 @@
                                     </td>
                                     @if ($queue->jenis_rawat == NULL)
                                     <td>
+                                        <input type="text" class="form-control" wire:model.lazy="listDrug.{{$index}}.harga" placeholder="0"/>
+                                    </td>
+                                    {{-- <td>
                                         <input type="text" class="form-control"
                                         wire:model.lazy="harga"
                                         placeholder="0"/>
-                                    </td>
+                                    </td> --}}
                                     @endif
                                     <td>
                                         <button wire:click="deleteDrug({{$index}})" class="btn btn-sm
