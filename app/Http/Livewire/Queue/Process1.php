@@ -47,14 +47,14 @@ class Process1 extends Component
             'hpht' => 'required|date',
             'pregnant_age' => 'required',
             'lila' => 'required',
-            'hpl' => 'required|date',
+            // 'hpl' => 'required|date',
             'tfu' => 'required',
             'djj' => 'required',
             'weight' => 'required',
             'blood_pressure' => 'required',
             'hpll' => 'required|date',
-            'complaint' => 'required',
-            'harga' => 'required|numeric'
+            'complaint' => 'required'
+            // 'harga' => 'required|numeric'
         ];
     }
 
@@ -150,9 +150,26 @@ class Process1 extends Component
         try {
             if (Auth::user()->role == "bidan") {
                 $gravida = Gravida::firstOrCreate(
-                    ["patient_id" => $this->queue->patient->id],
-                    ["bidan_id" => $this->queue->doctor->id, "hpl" => $this->hpll]
+                    // ["patient_id" => $this->queue->patient->id],
+                    // ["bidan_id" => $this->queue->doctor->id, "hpl" => $this->hpll]
                 );
+                $cek = Gravida::where("patien_id", $this->queue->patient->id)->count();
+
+                if ($cek == 0) {
+                    $gravida = Gravida::create([
+                        "patien_id" => $this->queue->patient->id,
+                        "bidan_id" => $this->queue->doctor->id,
+                        "hpl" => $this->hpll
+                    ]);
+                }
+
+                $kondisi = Gravida::where("patien_id", $this->queue->patient->id)->first();
+
+                if (empty($kondisi)) {
+                    $gravida_id = $request->gravida_id;
+                } else {
+                    $gravida_id = $kondisi->id;
+                }
 
                 $pregnantmoms = Pregnantmom::create([
                     "gravida_id" => $gravida->id,

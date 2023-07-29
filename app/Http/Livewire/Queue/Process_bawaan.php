@@ -14,7 +14,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class Process extends Component
+class Process_bawaan extends Component
 {
     public $queue;
     public $listDiagnosa = [];
@@ -118,7 +118,7 @@ class Process extends Component
         $user = Auth::user();
         $role = $user->role;
 
-        return view('livewire.queue.process', [
+        return view('livewire.queue.process_bawaan', [
             'role' => $role,
             ]);
 

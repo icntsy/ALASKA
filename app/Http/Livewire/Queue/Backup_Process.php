@@ -14,7 +14,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class Process extends Component
+class Backup_Process extends Component
 {
     public $queue;
     public $listDiagnosa = [];
