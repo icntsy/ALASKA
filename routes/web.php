@@ -88,6 +88,8 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::post("/obat/import", [ImportObatController::class, "import"]);
     Route::get('antrian/process/{queue}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::post("antrian/process/{queue}", [\App\Http\Livewire\Queue\Process::class, "save"]);
+    Route::get('antrian/acn/{queue}', \App\Http\Livewire\Queue\Process1::class)->name('queue.process1');
+    Route::post("antrian/acn/{queue}", [\App\Http\Livewire\Queue\Process1::class, "save"]);
     Route::get('dokumentasi/add-params-and-request/{doc}', AddParamAndRequest::class)->name('doc.add-param');
     Route::get('antri/obat', \App\Http\Livewire\Queue\Drug::class)->name('queue.drug');
     Route::get('antri/obat/process/{queue}', \App\Http\Livewire\Drug\Process::class)->name('queue.drug.process');

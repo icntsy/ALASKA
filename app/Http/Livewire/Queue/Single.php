@@ -31,6 +31,9 @@ class Single extends Component
         public function processCheckup(){
             $this->redirectRoute('queue.process', ['queue' => $this->queue->id]);
         }
+        public function processAcn(){
+            $this->redirectRoute('queue.process1', ['queue' => $this->queue->id]);
+        }
 
         public function processDrug(){
             $this->redirectRoute('queue.drug.process', ['queue' => $this->queue->id]);

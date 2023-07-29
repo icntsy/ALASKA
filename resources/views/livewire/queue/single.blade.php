@@ -13,7 +13,7 @@
         @elserole('dokter')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @elserole("bidan")
-        <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
+        <button class="btn btn-sm btn-primary" wire:click="processAcn">Proses</button>
         @elserole('staff')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @endrole

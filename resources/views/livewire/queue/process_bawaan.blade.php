@@ -1,5 +1,5 @@
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROSES CHECKUP MEDICAL RECORD')
+@section('page_title', 'PROCESS CHECKUP MEDICAL RECORD')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-list"></i>
 @endsection
@@ -12,6 +12,15 @@
 <div class="row">
     <div class="card col-md-12">
         @role("dokter")
+        <div class="card-header">
+            <div class="btn-actions-pane-right text-capitalize">
+                <button  wire:click="save" class="btn-wide btn-outline-2x mr-md-2 btn btn-primary"><i class="fa
+                    fa-check"></i> Selesai
+                </button>
+            </div>
+        </div>
+        @endrole
+        @role("bidan")
         <div class="card-header">
             <div class="btn-actions-pane-right text-capitalize">
                 <button  wire:click="save" class="btn-wide btn-outline-2x mr-md-2 btn btn-primary"><i class="fa
@@ -85,15 +94,19 @@
                                     </tr>
                                     <tr>
                                         <td style="font-weight: bold;" width="35%">
-
+                                            @if ($role === 'dokter')
                                             Dokter Pemeriksa
-
+                                            @elseif ($role === 'bidan')
+                                            Bidan Pemeriksa
+                                            @endif
                                         </td>
                                         <td>:</td>
                                         <td>
-
+                                            @if ($role === 'dokter')
                                             {{$queue->doctor->name}}
-
+                                            @elseif ($role === 'bidan')
+                                            {{$queue->doctor->name}}
+                                            @endif
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,8 +188,148 @@
                 </div>
             </div>
             @endrole
-
-
+            @role("bidan")
+            <div class="card-body row">
+                <div class='form-group col-md-6'>
+                    <label for='anak_ke' class='control-label'> {{ __('Hamil Anak ke') }}</label>
+                    <input type='text' wire:model.lazy='anak_ke'
+                    class="form-control @error('anak_ke') is-invalid @enderror" id='anak_ke' autofocus placeholder="Hamil Anak ke">
+                    @error('anak_ke')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='hpht' class='control-label'> {{ __('HPHT') }}</label>
+                    <input type='date' wire:model.lazy='hpht'
+                    class="form-control @error('hpht') is-invalid @enderror" id='hpht' autofocus placeholder="HPHT" >
+                    @error('hpht')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='hpll' class='control-label'> {{ __('HPL') }}</label>
+                    <input type='date' wire:model.lazy='hpll'
+                    class="form-control @error('hpll') is-invalid @enderror" id='hpll' autofocus placeholder="HPL">
+                    @error('hpll')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='pregnant_age' class='control-label'> {{ __('Usia Kehamilan') }}</label>
+                    <input type='text' wire:model.lazy='pregnant_age'
+                    class="form-control @error('pregnant_age') is-invalid @enderror" id='pregnant_age' autofocus placeholder="Usia Kehamilan">
+                    @error('pregnant_age')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='lila' class='control-label'> {{ __('Lingkar Lengan Atas') }}</label>
+                    <input type='text' wire:model.lazy='lila'
+                    class="form-control @error('lila') is-invalid @enderror" id='lila' autofocus placeholder="LILA">
+                    @error('lila')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='weight' class='control-label'> {{ __('Berat Badan (KG)') }}</label>
+                    <input type='text' wire:model.lazy='weight'
+                    class="form-control @error('weight') is-invalid @enderror" id='weight' autofocus placeholder="Berat Badan">
+                    @error('weight')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
+                    <input type='text' wire:model.lazy='blood_pressure'
+                    class="form-control @error('blood_pressure') is-invalid @enderror" id='blood_pressure' autofocus placeholder="Tekanan Darah">
+                    @error('blood_pressure')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='tfu' class='control-label'> {{ __('Tinggi Fudus Uteri') }}</label>
+                    <input type='text' wire:model.lazy='tfu'
+                    class="form-control @error('tfu') is-invalid @enderror" id='tfu' autofocus placeholder="TFU">
+                    @error('tfu')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='djj' class='control-label'> {{ __('Denyut Jantung Janin') }}</label>
+                    <input type='text' wire:model.lazy='djj'
+                    class="form-control @error('djj') is-invalid @enderror" id='djj' autofocus placeholder="DJJ">
+                    @error('djj')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='immunization_tt' class='control-label'> {{ __('Imunisasi TT') }}</label>
+                    <input type='text' wire:model.lazy='immunization_tt'
+                    class="form-control @error('immunization_tt') is-invalid @enderror" id='immunization_tt' autofocus placeholder="Imunisasi TT">
+                    @error('immunization_tt')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for='complaint' class='control-label'> {{ __('Keluhan') }}</label>
+                    <input type='text' wire:model.lazy='complaint'
+                    class="form-control @error('complaint') is-invalid @enderror" id='complaint' autofocus placeholder="Keluhan">
+                    @error('complaint')
+                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card-main">
+                    <div class="card-header">
+                        Data Obat
+                        <div class="btn-actions-pane-right text-capitalize">
+                            <button  wire:click="addDrug" class="btn-wide btn-outline-2x mr-md-2 btn
+                            btn-primary btn-sm">
+                                <i class="fa fa-plus-circle"></i>
+                                Tambah Obat
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Obat</th>
+                                    <th>Qty</th>
+                                    <th>Aturan Pakai</th>
+                                    @if ($queue->jenis_rawat == NULL)
+                                    <th>Harga</th>
+                                    @endif
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($listDrug as $index => $drug)
+                                <tr>
+                                    <td>{{$drug["drug"]["nama"]}}</td>
+                                    <td> <input type="number"
+                                        min="0"
+                                        max="{{$drug["drug"]["stok"]}}"
+                                        class="form-control"
+                                        wire:model="listDrug.{{$index}}.quantity"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control"
+                                        wire:model="listDrug.{{$index}}.instruction"
+                                        placeholder="Aturan Pakai"/>
+                                    </td>
+                                    @if ($queue->jenis_rawat == NULL)
+                                    <td>
+                                        <input type="text" class="form-control" wire:model.lazy="listDrug.{{$index}}.harga" placeholder="0"/>
+                                    </td>
+                                    {{-- <td>
+                                        <input type="text" class="form-control"
+                                        wire:model.lazy="harga"
+                                        placeholder="0"/>
+                                    </td> --}}
+                                    @endif
+                                    <td>
+                                        <button wire:click="deleteDrug({{$index}})" class="btn btn-sm
+                                        btn-danger">Hapus</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @endrole
             @role("dokter")
             <div class="col-md-12">
                 <div class="main-card">
@@ -210,8 +363,8 @@
                             <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
                             <select  wire:model.lazy='thoraks' class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
                                 <option value="" >---Thoraks--</option>
-                                <option value="Bj I-II Murni Regular" >Bj I-II Murni regular</option>
-                                <option value="Bj I-II Murni Iregular" >Bj I-II Murni iregular</option>
+                                <option value="Bj I-II Murni regular" >Bj I-II Murni regular</option>
+                                <option value="Bj I-II Murni iregular" >Bj I-II Murni iregular</option>
                                 <option value="Murmur (-)" >Murmur (-)</option>
                                 <option value="Murmur (+)" >Murmur (+)</option>
                                 <option value="Gallop (-)" >Gallop (-)</option>
@@ -315,6 +468,45 @@
                     </div>
                     <div class="card-body row">
                         <div class="col-md-12">
+                            {{-- <div class="card-main">
+                                <div class="card-header">
+                                    Data Labs
+                                    <div class="btn-actions-pane-right text-capitalize">
+                                        <button  wire:click="addLab" class="btn-wide btn-outline-2x mr-md-2 btn btn-primary btn-sm"><i class="fa
+                                            fa-plus-circle"></i> Tambah Lab
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Lab</th>
+                                                <th>Satuan</th>
+                                                <th>Hasil</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($listLab as $index => $lab)
+                                            <tr>
+                                                <td>{{$lab["lab"]["nama"]}}</td>
+                                                <td>{{$lab["lab"]["satuan"]}}</td>
+                                                <td>
+                                                    <input type="text" name="listLab[{{$index}}][quantity]"
+                                                    class="form-control" wire:model="listLab.{{$index}}.result">
+                                                </td>
+                                                <td>
+                                                    <button wire:click="deleteLab({{$index}})" class="btn-sm btn-danger">
+                                                        Hapus
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> --}}
                         </div>
                         <div class="col-md-12">
                             <div class="card-main">
