@@ -76,8 +76,11 @@
         <tr>
             <td style="width: 100px">
                 <center style="position: relative; top: -10px;">
-                    <img src="{{ asset('images/logo-inversesss.png') }}" style="width: 90px; height: 90px">
+                    <img src="{{ public_path('images/logo-inversesss.png') }}" style="width: 90px; height: 90px">
                 </center>
+                {{-- <center style="position: relative; top: -10px;">
+                    <img src="{{ asset('images/logo-inversesss.png') }}" style="width: 90px; height: 90px">
+                </center> --}}
             </td>
             <td class="deskripsi_apotek">
                 <div class="atur">
