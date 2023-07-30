@@ -1,5 +1,5 @@
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROCESS PEMERIKSAAN LANJUT')
+@section('page_title', 'PROSES PEMERIKSAAN LANJUT')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-spinner"></i>
 @endsection
@@ -251,8 +251,8 @@
                         <select  wire:model.lazy='thoraks'
                         class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
                         <option value="" >---Thoraks--</option>
-                        <option value="Bj I-II Murni regular" >Bj I-II Murni regular</option>
-                        <option value="Bj I-II Murni iregular" >Bj I-II Murni iregular</option>
+                        <option value="Bj I-II Murni Regular" >Bj I-II Murni Regular</option>
+                        <option value="Bj I-II Murni Iregular" >Bj I-II Murni Iregular</option>
                         <option value="Murmur (-)" >Murmur (-)</option>
                         <option value="Murmur (+)" >Murmur (+)</option>
                         <option value="Gallop (-)" >Gallop (-)</option>
