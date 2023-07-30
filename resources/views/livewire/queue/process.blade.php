@@ -210,8 +210,8 @@
                             <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
                             <select  wire:model.lazy='thoraks' class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
                                 <option value="" >---Thoraks--</option>
-                                <option value="Bj I-II Murni Regular" >Bj I-II Murni regular</option>
-                                <option value="Bj I-II Murni Iregular" >Bj I-II Murni iregular</option>
+                                <option value="Bj I-II Murni Regular" >Bj I-II Murni Regular</option>
+                                <option value="Bj I-II Murni Iregular" >Bj I-II Murni Iregular</option>
                                 <option value="Murmur (-)" >Murmur (-)</option>
                                 <option value="Murmur (+)" >Murmur (+)</option>
                                 <option value="Gallop (-)" >Gallop (-)</option>
