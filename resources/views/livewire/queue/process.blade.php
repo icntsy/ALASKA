@@ -187,7 +187,7 @@
                         <div class='form-group col-md-3'>
                             <label for='kepala' class='control-label'> {{ __('Kepala') }}</label>
                             <select  wire:model.lazy='kepala' class="form-control @error('kepala') is-invalid @enderror" id='kepala'>
-                                <option value="" >---Kepala--</option>
+                                <option value="" >--Kepala--</option>
                                 <option value="Normochepal" >Normochepal</option>
                                 <option value="Tidak" >Tidak</option>
                             </select>
@@ -197,7 +197,7 @@
                         <div class='form-group col-md-3'>
                             <label for='mata' class='control-label'> {{ __('Mata') }}</label>
                             <select  wire:model.lazy='mata' class="form-control @error('mata') is-invalid @enderror" id='mata'>
-                                <option value="" >---Mata--</option>
+                                <option value="" >--Mata--</option>
                                 <option value="Conjungtiva Anemis (-)" >Conjungtiva Anemis (-)</option>
                                 <option value="Conjungtiva Anemis (+)" >Conjungtiva Anemis (+)</option>
                                 <option value="Sklera Ikterik (-)" >Sklera Ikterik (-)</option>
@@ -209,7 +209,7 @@
                         <div class='form-group col-md-3'>
                             <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
                             <select  wire:model.lazy='thoraks' class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
-                                <option value="" >---Thoraks--</option>
+                                <option value="" >--Thoraks--</option>
                                 <option value="Bj I-II Murni Regular" >Bj I-II Murni Regular</option>
                                 <option value="Bj I-II Murni Iregular" >Bj I-II Murni Iregular</option>
                                 <option value="Murmur (-)" >Murmur (-)</option>
@@ -223,7 +223,7 @@
                         <div class='form-group col-md-3'>
                             <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
                             <select  wire:model.lazy='ekstremitas' class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
-                                <option value="" >---Ekstremitas--</option>
+                                <option value="" >--Ekstremitas--</option>
                                 <option value="Akral Hangat" >Akral Hangat</option>
                                 <option value="Akral Dingin" >Akral Dingin</option>
                                 <option value="CRT < 2 detik" >CRT < 2 detik</option>
@@ -234,7 +234,7 @@
                         <div class='form-group col-md-3'>
                             <label for='pulmo' class='control-label'> {{ __('Pulmo') }}</label>
                             <select  wire:model.lazy='pulmo' class="form-control @error('pulmo') is-invalid @enderror" id='pulmo'>
-                                <option value="" >---Pulmo--</option>
+                                <option value="" >--Pulmo--</option>
                                 <option value="VBS Ka=Ki" >VBS Ka=Ki</option>
                                 <option value="Wheezing (-)" >Wheezing (-)</option>
                                 <option value="Wheezing (+)" >Wheezing (+)</option>
@@ -247,7 +247,7 @@
                         <div class='form-group col-md-3'>
                             <label for='abdomen' class='control-label'> {{ __('Abdomen') }}</label>
                             <select  wire:model.lazy='abdomen' class="form-control @error('abdomen') is-invalid @enderror" id='abdomen'>
-                                <option value="" >---Abdomen--</option>
+                                <option value="" >--Abdomen--</option>
                                 <option value="Nyeri Tekan (-)" >Nyeri Tekan (-)</option>
                                 <option value="Nyeri Tekan (+)" >Nyeri Tekan (+)</option>
                             </select>
@@ -295,7 +295,7 @@
                         <div class='form-group col-md-3' id="optionMati" wire:ignore >
                             <label for='jenis_rawat' class='control-label'> {{ __('Pilihan Rawat') }}</label>
                             <select  wire:model='jenis_rawat' class="form-control @error('jenis_rawat') is-invalid @enderror" id='jenis_rawat'>
-                                <option value="">- Pilih -</option>
+                                <option value="">--Pilih--</option>
                                 <option value="Jalan">Rawat Jalan</option>
                                 <option value="Inap">Rawat Inap</option>
                             </select>
