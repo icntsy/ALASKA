@@ -59,7 +59,7 @@
                         <select  id="gender" class="form-control @error('gender') is-invalid @enderror"
                         wire:model.lazy="gender" name="gender">
                         <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
-                        <option value="L">Laki Laki</option>
+                        <option value="L">Laki-Laki</option>
                         <option value="P">Perempuan</option>
                     </select>
                     @error('gender')
