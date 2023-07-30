@@ -3,7 +3,7 @@ use App\Models\MedicalRecordDrugs;
 use App\Models\DrugBidan;
 @endphp
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROCESS  PEMBAYARAN')
+@section('page_title', 'PROSES  PEMBAYARAN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
 @endsection
