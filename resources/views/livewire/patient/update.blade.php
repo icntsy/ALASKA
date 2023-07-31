@@ -71,7 +71,7 @@
                     <div class='col-md-6 form-group'>
                         <label for='blood_type' class='control-label'> {{ __('Golongan Darah') }}</label>
                         <select  id="blood_type" class="form-control custom-select" wire:model="blood_type" name="blood_type">
-                            <option selected="selected" value="">---Golongan Darah--</option>
+                            <option selected="selected" value="">--Golongan Darah--</option>
                             <option value="A" >A</option>
                             <option value="B" >B</option>
                             <option value="AB" >AB</option>

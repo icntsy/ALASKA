@@ -85,7 +85,7 @@
                 <label for="blood_type" class="control-label">{{ __('Golongan Darah') }}</label>
                 <select id="blood_type" class="form-control @error('blood_type') is-invalid @enderror"
                 wire:model.lazy="blood_type" name="blood_type">
-                <option value="">--- Pilih Golongan Darah ---</option>
+                <option value="">--Pilih Golongan Darah--</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="AB">AB</option>
