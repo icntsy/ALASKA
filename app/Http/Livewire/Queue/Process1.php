@@ -147,21 +147,73 @@ class Process1 extends Component
     {
         $this->validate();
 
+        // try {
+        //     if (Auth::user()->role == "bidan") {
+        //         $gravida = Gravida::firstOrCreate(
+        //         );
+        //         $cek = Gravida::where("patien_id", $this->queue->patient->id)->count();
+
+        //         if ($cek == 0) {
+        //             $gravida = Gravida::create([
+        //                 "patien_id" => $this->queue->patient->id,
+        //                 "bidan_id" => $this->queue->doctor->id,
+        //                 "hpl" => $this->hpll
+        //             ]);
+        //         }
+
+        //         $kondisi = Gravida::where("patien_id", $this->queue->patient->id)->first();
+
+        //         if (empty($kondisi)) {
+        //             $gravida_id = $request->gravida_id;
+        //         } else {
+        //             $gravida_id = $kondisi->id;
+        //         }
+
+        //         $pregnantmoms = Pregnantmom::create([
+        //             "gravida_id" => $gravida->id,
+        //             "anak_ke" => $this->anak_ke,
+        //             "hpht" => $this->hpht,
+        //             "pregnant_age" => $this->pregnant_age,
+        //             "lila" => $this->lila,
+        //             "weight" => $this->weight,
+        //             "blood_pressure" => $this->blood_pressure,
+        //             "tfu" => $this->tfu,
+        //             "djj" => $this->djj,
+        //             "immunization_tt" => $this->immunization_tt,
+        //             "complaint" => $this->complaint,
+        //             "hpll" => $this->hpll,
+        //         ]);
+
+        //         if (Auth::user()->role == "bidan") {
+        //             foreach ($this->listDrug as $drug) {
+        //                 DrugBidan::create([
+        //                     "pregnantmom_id" => $pregnantmoms->id,
+        //                     "drug_id" => $drug["drug"]["id"],
+        //                     "quantity" => $drug["quantity"],
+        //                     "instruction" => $drug["instruction"],
+        //                     "harga" => $drug["harga"]
+        //                 ]);
+        //             }
+        //         }
+
+        //         if (Auth::user()->role == "bidan") {
+        //             Queue::where("id", $this->queue->id)->update([
+        //                 "pregnantmom_id" => $pregnantmoms->id,
+        //                 "has_check" => true
+        //             ]);
+        //             return redirect("/antrian");
+        //         }
+        //     }
+        // } catch (\Exception $e) {
+        //     dd($e);
+        // }
         try {
             if (Auth::user()->role == "bidan") {
-                $gravida = Gravida::firstOrCreate(
-                    // ["patient_id" => $this->queue->patient->id],
-                    // ["bidan_id" => $this->queue->doctor->id, "hpl" => $this->hpll]
-                );
-                $cek = Gravida::where("patien_id", $this->queue->patient->id)->count();
-
-                if ($cek == 0) {
-                    $gravida = Gravida::create([
-                        "patien_id" => $this->queue->patient->id,
-                        "bidan_id" => $this->queue->doctor->id,
-                        "hpl" => $this->hpll
-                    ]);
-                }
+                $gravida = Gravida::firstOrCreate([
+                    "patien_id" => $this->queue->patient->id,
+                    "bidan_id" => $this->queue->doctor->id,
+                    "hpl" => $this->hpll
+                ]);
 
                 $kondisi = Gravida::where("patien_id", $this->queue->patient->id)->first();
 
@@ -209,5 +261,6 @@ class Process1 extends Component
         } catch (\Exception $e) {
             dd($e);
         }
+
     }
 }
