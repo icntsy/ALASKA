@@ -1,5 +1,5 @@
 @section('meta_title', 'USER')
-@section('page_title', 'MASTER DATA USER')
+@section('page_title', 'DATA USER')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-user" aria-hidden="true"></i>
 @endsection
