@@ -6,7 +6,7 @@ use App\Models\Patient;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class Backup_index extends Component
 {
     use WithPagination;
     protected $listeners = ['patientDeleted'];
