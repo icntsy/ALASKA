@@ -13,13 +13,13 @@
             Antrian Periksa
         </a>
     </li>
-    <li class="app-sidebar__heading">Data Transaksi</li>
-    <li>
+    {{-- <li class="app-sidebar__heading">Data Transaksi</li> --}}
+    {{-- <li>
         <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
             <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
             Proses Pembayaran
         </a>
-    </li>
+    </li> --}}
     <li class="app-sidebar__heading">Data Pemeriksaan</li>
     <li>
         <a href="{{ route('progres.index') }}" class="@if (Request::is('progres*')) mm-active @endif">

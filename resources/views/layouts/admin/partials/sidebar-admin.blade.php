@@ -15,6 +15,12 @@
     </li>
     <li class="app-sidebar__heading">Data Master</li>
     <li>
+        <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+            <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
+            Proses Pembayaran
+        </a>
+    </li>
+    <li>
         <a href="{{ route('patient.index') }}" class="@if (Request::is('pasien*')) mm-active @endif">
             <i class="metismenu-icon fa fa-user-plus" aria-hidden="true"></i>
             Data Pasien

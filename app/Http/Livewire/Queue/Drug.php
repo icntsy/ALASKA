@@ -44,7 +44,8 @@ class Drug extends Component
 
             $user = Auth::user();
 
-            if ($user && $user->role == 'dokter') {
+            if ($user && $user->role == 'admin') {
+            // if ($user && $user->role == 'dokter') {
                 $queues->where('jenis_rawat', 'Inap')->whereDoesntHave("transaction");
 
             }

@@ -21,12 +21,23 @@
     </td>
     <td class="text-center">
         @role('admin')
-        <a wire:click="delete" class="btn text-danger">
+        {{-- <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>
         </a>
         <a href="{{route('queue.update', ['queue' => $queue->id])}}" class="btn text-warning">
             <i class="fa fa-edit fa-1x"></i>
-        </a>
+        </a> --}}
+        @if ($cek)
+        <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+    @else
+        @if ($queue->jenis_rawat == "Inap")
+        <button class="btn btn-sm btn-danger">
+            Pasien Belum Pulang
+        </button>
+        @elseif($queue->jenis_rawat == "Jalan" || $queue->jenis_rawat == NULL)
+        <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+        @endif
+    @endif
         @elserole('staff|apoteker|dokter')
             @if ($cek)
                 <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
