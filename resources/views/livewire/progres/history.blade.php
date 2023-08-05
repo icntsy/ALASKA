@@ -234,11 +234,20 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{ $convert['ekstremitas'] }}
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td style="font-weight: bold;">Keterangan</td>
                                         <td>:</td>
                                         <td>
                                             {{ $convert['keterangan'] }}
+                                        </td>
+                                    </tr> --}}
+                                    <tr>
+                                        <td style="font-weight: bold; vertical-align: top;">Keterangan</td>
+                                        <td style="font-weight: bold; vertical-align: top;">:</td>
+                                        <td>
+                                            <p>
+                                                {!! nl2br(e($convert['keterangan'])) !!}
+                                            </p>
                                         </td>
                                     </tr>
                                 </table>
