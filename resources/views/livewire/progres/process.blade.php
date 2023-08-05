@@ -268,7 +268,6 @@
                     <option value="" >--Ekstremitas--</option>
                     <option value="Akral Hangat" >Akral Hangat</option>
                     <option value="Akral Dingin" >Akral Dingin</option>
-                    <option value="CRT < 2 detik" >CRT < 2 detik</option>
                 </select>
                 @error('ekstremitas')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -278,11 +277,8 @@
                 <select  wire:model.lazy='pulmo'
                 class="form-control @error('pulmo') is-invalid @enderror" id='pulmo'>
                 <option value="" >--Pulmo--</option>
-                <option value="VBS Ka=Ki">VBS Ka=Ki</option>
-                <option value="Wheezing (-)" >Wheezing (-)</option>
-                <option value="Wheezing (+)" >Wheezing (+)</option>
-                <option value="Ronkhi (-)" >Ronkhi (-)</option>
-                <option value="Ronkhi (+)" >Ronkhi (+)</option>
+                <option value="VBS Ka=Ki" >VBS Ka=Ki</option>
+                <option value="VBS Ka≠Ki" >VBS Ka≠Ki</option>
             </select>
             @error('pulmo')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -308,7 +304,7 @@
     </div>
     <div class='form-group col-md-3'>
         <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
-        <input type='number' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
+        <input type='text' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
         class="form-control @error('blood_pressure') is-invalid @enderror"
         id='blood_pressure'>
         @error('blood_pressure')

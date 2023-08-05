@@ -420,11 +420,11 @@
                         <div class="nama_ttd" style="text-align: center; margin-bottom: 70px">
                             Penerima
                         </div>
-                        <div class="nama" style="text-align: center">
+                        {{-- <div class="nama" style="text-align: center">
                             <strong>
                                 {{ $transaksi->queue->patient->name }}
                             </strong>
-                        </div>
+                        </div> --}}
                     </p>
                 </td>
                 <td colspan="3" style="padding-left: 150px;">
