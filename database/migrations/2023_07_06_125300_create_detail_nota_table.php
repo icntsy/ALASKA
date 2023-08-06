@@ -29,6 +29,7 @@ class CreateDetailNotaTable extends Migration
             $table->string('darah');
             $table->string('fisioterapi');
             $table->string('tambahan');
+            $table->string('disk');
             $table->timestamps();
         });
     }

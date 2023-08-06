@@ -13,6 +13,7 @@ class Process extends Component
 {
     public $queue; // Menyimpan data antrian
     public $payment; // Menyimpan nilai pembayaran
+    public $tagihan;
     public $qty1; // Menyimpan nilai kuantitas 1
     public $harga1; // Menyimpan nilai harga 1
     public $qty2;
@@ -37,9 +38,12 @@ class Process extends Component
     public $harga11;
     public $qty12;
     public $harga12;
+    public $qty13;
+    public $harga13;
 
     protected $rules = [
         'payment' => 'required|numeric',
+        'tagihan' => 'required|numeric',
     ];
 
     public  function mount(Queue $queue){
@@ -90,6 +94,9 @@ class Process extends Component
                 'harga11' => 'required|numeric',
                 'qty12' => 'required|numeric',
                 'harga12' => 'required|numeric',
+                'qty13' => 'required|numeric',
+                'harga13' => 'required|numeric',
+
                 ]);
 
                 $qty1 = $this->qty1;
@@ -140,6 +147,10 @@ class Process extends Component
                 $harga12 = $this->harga12;
                 $total12 = $qty12 * $harga12;
 
+                $qty13 = $this->qty13;
+                $harga13 = $this->harga13;
+                $total13 = $qty13 * $harga13;
+
                 $subtotal = 0;
 
                 // Calculate subtotal
@@ -155,6 +166,7 @@ class Process extends Component
                 $subtotal += floatval($this->qty10) * floatval($this->harga10);
                 $subtotal += floatval($this->qty11) * floatval($this->harga11);
                 $subtotal += floatval($this->qty12) * floatval($this->harga12);
+
                 // Add other subtotal calculations here
 
                 $jumlah = $subtotal;
@@ -172,13 +184,16 @@ class Process extends Component
                     "ekg" => json_encode(["qty" => $this->qty9, "harga" => $this->harga9, "amount" => $this->qty9 * $this->harga9]),
                     "darah" => json_encode(["qty" => $this->qty10, "harga" => $this->harga10, "amount" => $this->qty10 * $this->harga10]),
                     "fisioterapi" => json_encode(["qty" => $this->qty11, "harga" => $this->harga11, "amount" => $this->qty11 * $this->harga11]),
-                    "tambahan" => json_encode(["qty" => $this->qty12, "harga" => $this->harga12, "amount" => $this->qty12 * $this->harga12])
+                    "tambahan" => json_encode(["qty" => $this->qty12, "harga" => $this->harga12, "amount" => $this->qty12 * $this->harga12]),
+                    "disk" => json_encode(["qty" => $this->qty13, "harga" => $this->harga13, "amount" => $this->qty13 * $this->harga13])
+
 
                 ]);
 
                 Transaction::create([
                     'queue_id' => $this->queue->id,
-                    'payment' => $this->payment
+                    'payment' => $this->payment,
+                    'tagihan' => $this->tagihan
                     ]);
 
                     $this->redirectRoute('queue.drug');
@@ -187,7 +202,8 @@ class Process extends Component
                         'queue' => $this->queue,
                         'qty' => $qty,
                         'harga' => $harga,
-                        'total' => $total
+                        'total' => $total,
+                        'total13' => $total13
 
                         ]);
                     }
@@ -208,14 +224,18 @@ class Process extends Component
                         $subtotal += floatval($this->qty10) * floatval($this->harga10);
                         $subtotal += floatval($this->qty11) * floatval($this->harga11);
                         $subtotal += floatval($this->qty12) * floatval($this->harga12);
+
                         // Add other subtotal calculations here
 
                         $jumlah = $subtotal;
+                        $total13 = $this->qty13 * $this->harga13;
 
                         return view('livewire.drug.process', [
                             'queue' => $this->queue,
                             'subtotal' => $subtotal,
-                            'jumlah' => $jumlah
+                            'jumlah' => $jumlah,
+                            'total13' => $total13,
                             ]);
                         }
                     }
+

@@ -55,14 +55,16 @@ class Store extends Component
             "ekg" => json_encode(["qty" => $req->qty9, "harga" => $req->harga9, "amount" => $req->qty9 * $req->harga9]),
             "darah" => json_encode(["qty" => $req->qty10, "harga" => $req->harga10, "amount" => $req->qty10 * $req->harga10]),
             "fisioterapi" => json_encode(["qty" => $req->qty11, "harga" => $req->harga11, "amount" => $req->qty11 * $req->harga11]),
-            "tambahan" => json_encode(["qty" => $req->qty12, "harga" => $req->harga12, "amount" => $req->qty12 * $req->harga12])
+            "tambahan" => json_encode(["qty" => $req->qty12, "harga" => $req->harga12, "amount" => $req->qty12 * $req->harga12]),
+            "disk" => json_encode(["qty" => $req->qty13, "harga" => $req->harga13, "amount" => $req->qty13 * $req->harga13])
 
         ]);
 
         // Membuat transaksi dengan informasi antrian dan pembayaran yang diterima
         Transaction::create([
             'queue_id' => $queue->id,
-            'payment' => $req->payment
+            'payment' => $req->payment,
+            'tagihan' => $req->tagihan
         ]);
 
         return redirect("/antri/obat");

@@ -11,7 +11,8 @@ class TransactionController extends Controller
     public function create(Request $request, $id) {
         // Melakukan validasi input dari pengguna
         $this->validate($request, [
-            'payment' => 'required'
+            'payment' => 'required',
+            'tagihan' => 'required'
         ]);
         // Membuat transaksi baru dengan menggunakan data yang diberikan oleh pengguna
         $transaction= Transaction::create($request->all());

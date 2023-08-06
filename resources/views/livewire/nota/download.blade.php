@@ -23,10 +23,10 @@
         }
 
         .nama_apotek {
-            font-size: 17px;
+            font-size: 16px;
             color:green;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .bold_text_sub {
@@ -44,21 +44,22 @@
         }
 
         .thead {
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
             font-size: 12px;
         }
 
         .tbody {
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 7px;
+            padding-bottom: 7px;
             text-align: center;
         }
 
         .note {
-            margin-top: 30px;
+            margin-top: 40px;
             padding-left: 70px;
-            font-size: 14px;
+            font-size: 13px;
+            margin-bottom: -100px;
         }
 
         .atur {
@@ -107,15 +108,15 @@
             <td>
                 <table style="width: 100%">
                     <tr>
-                        <td>Date</td>
+                        <td style="font-size: 13px;">Date</td>
                         <td>:</td>
-                        <td>
+                        <td style="font-size: 13px;">
 
                             {{ Carbon::parse($transaksi->created_at)->isoFormat('dddd, D MMMM YYYY ') }}
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3">To</td>
+                        <td colspan="3" style="font-size: 13px;">To</td>
                     </tr>
                     <tr>
                         <td colspan="3">
@@ -125,21 +126,21 @@
                     <tr>
                         <td class="bold_text_sub">Nama</td>
                         <td>:</td>
-                        <td>
+                        <td style="font-size: 13px;">
                             {{ $transaksi->queue->patient->name }}
                         </td>
                     </tr>
                     <tr>
                         <td class="bold_text_sub">Umur</td>
                         <td>:</td>
-                        <td>
+                        <td style="font-size: 13px;">
                             {{ Carbon::parse($transaksi->queue->patient->birth_date)->diffInYears(Carbon::now()) }} Tahun
                         </td>
                     </tr>
                     <tr>
                         <td class="bold_text_sub">Alamat</td>
                         <td>:</td>
-                        <td>
+                        <td style="font-size: 13px;">
                             {{ $transaksi->queue->patient->address }}
                         </td>
                     </tr>
@@ -158,7 +159,7 @@
         </p>
 
         <br>
-        <table style="width: 100%" border="1" cellpadding="0" cellspacing="0">
+        <table style="width: 100%" border="1" cellpadding="0" cellspacing="0" margin-top: -10px;>
             <thead>
                 <tr>
                     <th class="thead">NO</th>
@@ -398,14 +399,49 @@
                         @endphp
                     </td>
                 </tr>
+                <tr>
+                    <td class="tbody">13.</td>
+                    <td class="tbody">
+                        @php
+                            echo $tambahan["qty"];
+                        @endphp
+                    </td>
+                    <td class="tbody">Diskon</td>
+                    <td class="tbody">
+                        @php
+                             echo "Rp." . number_format($disk["harga"]);
+                        @endphp
+                    </td>
+                    <td class="tbody">
+                        @php
+                            echo "Rp." . number_format($disk["amount"]);
+                        @endphp
+                    </td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4" style="text-align: right; padding-top: 10px; padding-bottom: 10px; font-size: 16px; font-weight: bold; padding-right: 10px;">
+                    <td colspan="4" style="text-align: right; padding-top: 8px; padding-bottom: 8px; font-size: 12px; font-weight: bold; padding-right: 10px;">
+                        TOTAL
+                    </td>
+                    <td class="tbody">
+                        Rp. {{ number_format($transaksi->tagihan) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: right; padding-top: 8px; padding-bottom: 8px; font-size: 12px; font-weight: bold; padding-right: 10px;">
+                        DISKON
+                    </td>
+                    <td class="tbody">
+                        Rp. {{ number_format($disk["amount"]) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: right; padding-top: 8px; padding-bottom: 8px; font-size: 12px; font-weight: bold; padding-right: 10px;">
                         TOTAL PAYMENT
                     </td>
                     <td class="tbody">
-                        Rp. {{ number_format($transaksi->payment) }}
+                        Rp. {{ number_format($transaksi->tagihan - $disk["amount"]) }}
                     </td>
                 </tr>
             </tfoot>
@@ -413,11 +449,11 @@
 
         <br>
 
-        <table style="margin-left: 50px;">
+        <table style="margin-left: 30px;">
             <tr>
                 <td>
                     <p>
-                        <div class="nama_ttd" style="text-align: center; margin-bottom: 70px">
+                        <div class="nama_ttd" style="text-align: center; margin-bottom: 70px; font-size: 14px;">
                             Penerima
                         </div>
                         {{-- <div class="nama" style="text-align: center">
@@ -427,8 +463,8 @@
                         </div> --}}
                     </p>
                 </td>
-                <td colspan="3" style="padding-left: 150px;">
-                    <i style="font-size: 20px;">
+                <td colspan="1" style="padding-left: 150px;">
+                    <i style="font-size: 16px;">
                         ___ TERIMAKASIH ___
                     </i>
                 </td>

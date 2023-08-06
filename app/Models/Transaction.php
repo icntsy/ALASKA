@@ -13,6 +13,7 @@ class Transaction extends Model
     protected $fillable = [
         'queue_id',
         'payment',
+        'tagihan',
 
     ];
 

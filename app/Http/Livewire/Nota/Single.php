@@ -93,8 +93,9 @@ class Single extends Component
             $darah = json_decode($qty_ruangan["darah"], true);
             $fisioterapi = json_decode($qty_ruangan["fisioterapi"], true);
             $tambahan = json_decode($qty_ruangan["tambahan"], true);
+            $disk = json_decode($qty_ruangan["disk"], true);
 
-            $pdf = PDF::loadView("livewire.nota.download", ["ruangan" => $ruangan, "assesment" => $assesment, "pendaftaran" => $pendaftaran, "infus" => $infus, "tindakan" => $tindakan, "obat" => $obat, "visite" => $visite, "pulang" => $pulang, "ekg" => $ekg, "darah" => $darah, "fisioterapi" => $fisioterapi, "tambahan" => $tambahan, "transaksi" => $transaksi])->setPaper('A4', 'portrait');
+            $pdf = PDF::loadView("livewire.nota.download", ["ruangan" => $ruangan, "assesment" => $assesment, "pendaftaran" => $pendaftaran, "infus" => $infus, "tindakan" => $tindakan, "obat" => $obat, "visite" => $visite, "pulang" => $pulang, "ekg" => $ekg, "darah" => $darah, "fisioterapi" => $fisioterapi, "tambahan" => $tambahan, "disk" => $disk, "transaksi" => $transaksi])->setPaper('A4', 'portrait');
 
             return $pdf->download("Kwitansi-Rawat-Inap-" . Str::slug($transaksi->queue->patient->name) . ".pdf");
             // return $pdf->download("KUITANSI-RAWAT-INAP-". Str::slug($transaksi->queue->patient->name) .".pdf");

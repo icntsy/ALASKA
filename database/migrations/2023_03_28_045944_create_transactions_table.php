@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignIdFor(Queue::class);
             $table->string('payment');
+            $table->string('tagihan');
             $table->timestamps();
         });
     }

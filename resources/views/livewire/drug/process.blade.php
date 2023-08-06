@@ -234,6 +234,15 @@ use App\Models\DrugBidan;
                                                 <td><input type="number" name="harga12" wire:model="harga12" placeholder="Harga" class="form-control" /></td>
                                                 <td><input type="text" class="form-control" value="{{ isset($qty12) && isset($harga12) ? number_format((float)$qty12 * (float)$harga12) : '' }}" readonly></td>
                                             </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>Diskon</td>
+                                                <td><input type="number" name="qty13" wire:model="qty13" placeholder="Qty" class="form-control" /></td>
+                                                <td><input type="number" name="harga13" wire:model="harga13" placeholder="Harga" class="form-control" /></td>
+                                                <td><input type="text" class="form-control" value="{{ isset($qty13) && isset($harga13) ? number_format((float)$qty13 * (float)$harga13) : '' }}" readonly></td>
+                                            </tr>
+
+
                                             @elseif($queue->jenis_rawat == "Jalan")
                                             @foreach ($queue->medicalrecord->drugs as $drug)
                                             @php
@@ -398,7 +407,11 @@ use App\Models\DrugBidan;
                                     Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
                                     @endif
                                     @if ($queue->jenis_rawat == 'Inap')
-                                    Jumlah Pembayaran : <input type="text" name="payment" placeholder="payment" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah }}" readonly>
+                                    Tagihan Pembayaran : <input type="text" name="tagihan" placeholder="tagihan" class="form-control" id="tagihan" style="width: 50%" value="{{ $jumlah }}" readonly>
+                                    {{-- Tagihan Pembayaran : <input type="text" name="payment" placeholder="payment" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah }}" readonly> --}}
+                                    Jumlah Diskon : <input type="text" placeholder="disk" class="form-control" style="width: 50%" value="{{ $total13 }}" readonly>
+                                    Jumlah Pembayaran : <input type="text" name="payment" placeholder="jumlah" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah - $total13 }}" readonly>
+
                                     @endif
                                 </div>
                             </div>
