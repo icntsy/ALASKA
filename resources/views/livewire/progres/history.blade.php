@@ -257,6 +257,7 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                             Data Progres Rawat Inap
                         </div>
                         <div class="card-body row">
+                            <div class="table-responsive">
                             <table class="mb-0 table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -300,6 +301,7 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
                     <div class="m-auto pt-3 pr-3">

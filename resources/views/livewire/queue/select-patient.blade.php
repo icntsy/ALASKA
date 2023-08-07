@@ -23,6 +23,7 @@ aria-hidden="true">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="table-responsive">
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -40,6 +41,7 @@ aria-hidden="true">
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 </div>
                 <div class="m-auto pt-3 pr-3">

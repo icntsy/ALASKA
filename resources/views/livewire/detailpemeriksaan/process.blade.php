@@ -72,6 +72,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="card-body row">
                         <div class="col-md-12">
+                            <div class="table-responsive">
                             <table width="100%" class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -98,6 +99,7 @@ use Carbon\Carbon;
                                     @endforelse
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                         <hr>
                     </div>

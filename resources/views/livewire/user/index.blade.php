@@ -27,6 +27,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-12">
+                            <div class="table-responsive">
                             <table class="mb-0 table table-sm table-bordered">
                                 <thead>
                                     <tr>
@@ -68,6 +69,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
                     <div class="m-auto pt-3 pr-3">

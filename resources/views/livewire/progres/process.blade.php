@@ -401,6 +401,7 @@
         </div>
     </div>
     <div class="card-body">
+        <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -431,6 +432,7 @@
             </tbody>
         </table>
     </div>
+    </div>
 </div>
 </div>
 <div class="col-md-12">
@@ -445,6 +447,7 @@
         </div>
     </div>
     <div class="card-body">
+        <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -477,6 +480,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 </div>

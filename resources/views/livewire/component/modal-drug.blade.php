@@ -23,6 +23,7 @@ aria-hidden="true">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="table-responsive">
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -37,11 +38,17 @@ aria-hidden="true">
                             </tbody>
                         </table>
                     </div>
+                    </div>
                 </div>
                 <div class="m-auto pt-3 pr-3">
                     {{ $drugs->appends(request()->query())->links() }}
                 </div>
                 <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
             </div>
         </div>
     </div>
