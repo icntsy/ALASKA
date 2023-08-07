@@ -202,6 +202,7 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -242,6 +243,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 </div>
             </div>
