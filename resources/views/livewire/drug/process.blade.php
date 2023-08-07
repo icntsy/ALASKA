@@ -409,6 +409,9 @@ use App\Models\DrugBidan;
                                     @if ($queue->jenis_rawat == 'Inap')
                                     Tagihan Pembayaran : <input type="text" name="tagihan" placeholder="tagihan" class="form-control" id="tagihan" style="width: 50%" value="{{ $jumlah }}" readonly>
                                     {{-- Tagihan Pembayaran : <input type="text" name="payment" placeholder="payment" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah }}" readonly> --}}
+                                    {{-- Jumlah Diskon: <input type="text" placeholder="disk" class="form-control" style="width: 50%" value="{{ floatval($total13) }}" readonly>
+                                    Jumlah Pembayaran: <input type="text" name="payment" placeholder="jumlah" class="form-control" id="payment" style="width: 50%" value="{{ floatval($jumlah) - floatval($total13) }}" readonly> --}}
+
                                     Jumlah Diskon : <input type="text" placeholder="disk" class="form-control" style="width: 50%" value="{{ $total13 }}" readonly>
                                     Jumlah Pembayaran : <input type="text" name="payment" placeholder="jumlah" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah - $total13 }}" readonly>
 

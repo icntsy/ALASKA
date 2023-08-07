@@ -228,7 +228,9 @@ class Process extends Component
                         // Add other subtotal calculations here
 
                         $jumlah = $subtotal;
-                        $total13 = $this->qty13 * $this->harga13;
+                        // $total13 = $this->qty13 * $this->harga13;
+                        $total13 = floatval($this->qty13) * floatval($this->harga13);
+
 
                         return view('livewire.drug.process', [
                             'queue' => $this->queue,
