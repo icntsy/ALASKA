@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Gravida;
 
 class CreatePregnantmomsTable extends Migration
 {
@@ -15,7 +16,8 @@ class CreatePregnantmomsTable extends Migration
     {
         Schema::create('pregnantmoms', function (Blueprint $table) {
             $table->id();
-            $table->integer('gravida_id');
+            // $table->integer('gravida_id');
+            $table->foreignIdFor(Gravida::class);
             $table->string('anak_ke');
             $table->date('hpht');
             $table->date('hpll');

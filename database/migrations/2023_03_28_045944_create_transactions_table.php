@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignIdFor(Queue::class);
             $table->string('payment');
-            $table->string('tagihan');
+            $table->string('tagihan')->nullable();
             $table->timestamps();
         });
     }

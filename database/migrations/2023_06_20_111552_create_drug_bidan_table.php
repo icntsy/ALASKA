@@ -17,8 +17,10 @@ class CreateDrugBidanTable extends Migration
     {
         Schema::create('drug_bidan', function (Blueprint $table) {
             $table->id();
-            $table->integer('pregnantmom_id');
-            $table->integer("drug_id");
+            $table->foreignIdFor(Pregnantmom::class);
+            // $table->integer('pregnantmom_id');
+            // $table->integer("drug_id");
+            $table->foreignIdFor(Drug::class);
             $table->integer('quantity')->default(0);
             $table->string('instruction');
             $table->string('harga');

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\MedicalRecordInap;
 
 class CreateMedicalRecordStatusTable extends Migration
 {
@@ -16,7 +17,8 @@ class CreateMedicalRecordStatusTable extends Migration
         Schema::create('medical_record_status', function (Blueprint $table) {
 
             $table->id();
-            $table->integer("medical_record_inap");
+            // $table->integer("medical_record_inap");
+            $table->foreignIdFor(MedicalRecordInap::class);
             $table->integer("status");
             $table->timestamps();
         });

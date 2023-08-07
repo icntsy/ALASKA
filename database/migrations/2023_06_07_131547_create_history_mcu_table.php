@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\MedicalRecord;
 
 class CreateHistoryMcuTable extends Migration
 {
@@ -15,7 +16,8 @@ class CreateHistoryMcuTable extends Migration
     {
         Schema::create('history_mcu', function (Blueprint $table) {
             $table->id();
-            $table->integer("medical_record_id");
+            // $table->integer("medical_record_id");
+            $table->foreignIdFor(MedicalRecord::class);
             $table->text("physical_test");
             $table->integer("patient_id");
             $table->timestamps();
