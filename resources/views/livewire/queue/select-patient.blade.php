@@ -49,6 +49,11 @@ aria-hidden="true">
                 </div>
                 <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
         </div>
     </div>
 </div>
